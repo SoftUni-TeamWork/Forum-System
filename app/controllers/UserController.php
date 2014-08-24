@@ -3,15 +3,6 @@
 class UserController extends \BaseController {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index() {
-//
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return Response
@@ -27,34 +18,17 @@ class UserController extends \BaseController {
      * @return Response
      */
     public function store() {
-        $user = User::where('username', '=', Input::get('username'))->first();
+        $userData = Input::all();
 
-        if ($user !== NULL) {
-            $msg = ['msg' => 'Има такъв потребител'];
-            return Redirect::to('user/register')->withErrors($msg);
+        $user = new User();
+
+        if($user->validate($userData)) {
+            $user->setData($userData);
+            $user->save();
+
+            return Redirect::to('/');
         } else {
-            echo 'user is NOT here';
-            $data = Input::all();
-            $rules = [
-                'username' => 'required|min:6',
-                'password' => 'required|min:6'
-            ];
-            $validator = Validator::make($data, $rules, ['username.required' => 'поне 6 символа',
-                'username.min' => 'поне 6 символа',
-                'password.required' => 'поне 6 символа',
-                'password.min' => 'поне 6 символа']);
-            if ($validator->fails()) {
-                return Redirect::to('user/register')->withErrors($validator)->withInput();
-            } else {
-                $user = new User();
-                $user->username = Input::get('username');
-                $user->password = Hash::make(Input::get('password'));
-                $user->save();
-                $msg = ['msg' => 'Успешно създаден потребител!'];
-
-
-                return Redirect::to('user/register')->withErrors($msg);
-            }
+            return Redirect::to('user/register')->withErrors($user->errors)->withInput();
         }
     }
 
