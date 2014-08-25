@@ -15,6 +15,7 @@ Route::get('/', array('before' => 'auth','UserController@logged'));
 Route::get('/', 'HomeController@index');
 
 Route::get('/user/register',array('before' => 'guest', 'UserController@create'));
+Route::get('/user/register', 'UserController@create');
 Route::post('/user/register', 'UserController@store');
 
 Route::get('user/login', 'UserController@logged');
