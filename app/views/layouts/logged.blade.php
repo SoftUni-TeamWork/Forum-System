@@ -36,7 +36,7 @@
     <body>
         <header>
             <ul>
-                <li><a href="/">Начало</a></li>
+                <li><a href="/user/login">Начало</a></li>
                 <li><a href="/user/logout">Изход</a></li>
             </ul>
         </header>

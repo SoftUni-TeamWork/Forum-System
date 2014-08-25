@@ -88,7 +88,7 @@ class UserController extends \BaseController {
 
     public function logged() {
 //        echo Auth::check();
-        $questions = Questions::all();
+        $questions = Question::all();
         $arr = [];
 
         foreach ($questions as $question) {
@@ -103,9 +103,10 @@ class UserController extends \BaseController {
         if (Auth::check()) {
             $arr['user'] = Auth::user()->username;
 //            print_r($arr);exit;
+            return View::make('secure', $arr);
         }
 //        echo '<pre>'.print_r($arr,true).'</pre>';exit; //ДЕНИС, тук пробвам данните към вюто!
-        return View::make('hello', $arr);
+        return View::make('user.login', $arr);
     }
 
     public function logged1() {

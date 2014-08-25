@@ -31,6 +31,15 @@
             text-align: left;
 
         }
+        footer a{
+            color: blue;
+            text-decoration: underline;
+            
+        }
+        footer div:first-of-type{
+            width: 100px;
+        }
+        
     </style>
 </head>
 <body>
@@ -47,7 +56,7 @@
     </div>
 </section>
 <footer>
-    <a href="https://softuni.bg">Softuni</a>
+    <div><a href="https://softuni.bg">Softuni</a></div>
 </footer>
 </body>
 </html>

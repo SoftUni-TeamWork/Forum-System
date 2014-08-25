@@ -1,5 +1,5 @@
-@extends('layouts/secure1')
+@extends('layouts.logged')
 @section('content')
 Здравей, потребител {{Auth::user()->username}}!<br />
-Кликнете на начало, за да видите всички коментари
+Тук ще видите всички коментари
 @stop
