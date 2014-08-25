@@ -6,7 +6,7 @@
  * Date: 14-8-25
  * Time: 0:57
  */
-class Question extends BaseModel {
+class Question extends Eloquent {
 
     function  __construct() {
         $this->rules = [
