@@ -2,8 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <!--<link rel="stylesheet" type="text/css" href="style.css" />-->
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/styles.css')}}" type="text/css">
     <title>Team "TAMBA" Forum system</title>
 </head>
 <body>
@@ -11,7 +10,7 @@
     <header>
         <div class="logo">
             <a href="/">
-                <img alt="Team TAMBA Forum system" src="tamba3.png">
+                {{ HTML::image('imgs/tamba.png', 'Team TAMBA Forum system') }}
             </a>
         </div>
         <nav>
