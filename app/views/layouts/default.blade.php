@@ -9,15 +9,15 @@
 <div class="wrapper">
     <header>
         <div class="logo">
-            <a href="/">
+            <a href="{{ URL::route('home') }}">
                 {{ HTML::image('imgs/tamba.png', 'Team TAMBA Forum system') }}
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="/">Начало</a></li>
-                <li><a href="/user/login">Вход</a></li>
-                <li><a href="/user/register">Регистрация</a></li>
+                <li><a href="{{ URL::route('home') }}">Начало</a></li>
+                <li><a href="{{ URL::route('user.login') }}">Вход</a></li>
+                <li><a href="{{ URL::route('user.register') }}">Регистрация</a></li>
             </ul>
         </nav>
     </header>

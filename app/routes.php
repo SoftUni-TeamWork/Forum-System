@@ -12,14 +12,26 @@
 */
 
 Route::get('/', array('before' => 'auth','UserController@logged'));
-Route::get('/', 'HomeController@index');
+Route::get('/', array(
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+));
 
-Route::get('/user/register',array('before' => 'guest', 'UserController@create'));
-Route::get('/user/register', 'UserController@create');
+Route::get('/user/register', array(
+    'before' => 'guest',
+    'as' => 'user.register',
+    'uses' => 'UserController@create'
+));
 Route::post('/user/register', 'UserController@store');
 
-Route::get('user/login', 'UserController@logged');
+Route::get('user/login', array(
+    'as' => 'user.login',
+    'uses' => 'UserController@logged'
+));
 Route::post('user/login', 'UserController@login');
 
-Route::get('/user/logout', 'UserController@logout');
+Route::get('/user/logout', array(
+    'as' => 'user.logout',
+    'uses' => 'UserController@logout'
+));
 Route::get('/user/{id}', 'UserController@show');
