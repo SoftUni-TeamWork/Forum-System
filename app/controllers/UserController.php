@@ -80,7 +80,18 @@ class UserController extends \BaseController {
 
         if (Auth::attempt(['username' => Input::get('username'), 'password' => Input::get('password')])) {
 //            $arr = ['user' => Auth::user()->username, 'id' => Auth::id()];
-            return View::make('secure');
+            $questionData = Question::all();
+        $arr = [];
+//        echo '<pre>' . print_r($questions, true) . '</pre>';exit;
+        foreach ($questionData as $question) {
+            $arr['n' . $question->question_id]['title'] = $question->title;
+            $arr['n' . $question->question_id]['text'] = $question->text;
+            $arr['n' . $question->question_id]['user_id'] = $question->user_id;
+            $arr['n' . $question->question_id]['category_id'] = $question->category_id;
+        }
+
+        $arr['count'] = count($arr);
+            return View::make('secure',$arr);
         } else {
             return Redirect::to('user.login');
         }

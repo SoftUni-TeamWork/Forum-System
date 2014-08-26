@@ -7,8 +7,8 @@
 //print_r($n1['title']);
 for ($index = 1; $index <= $count; $index++) {
     $name='n'.$index;
-    print_r($$name);
-    
+    echo '<pre>'.print_r($$name,true).'</pre>';
+    echo $n1['title'];
 }
 ?>
 @stop
