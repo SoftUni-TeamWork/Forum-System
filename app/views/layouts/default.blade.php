@@ -30,7 +30,7 @@
         </section>
     </main>
     <footer>
-        <div><a href="https://softuni.bg">Softuni</a></div>
+        <div>&copy;2014 by Team Tamba at <a href="https://softuni.bg">Softuni</a></div>
     </footer>
 </div>
 </body>
