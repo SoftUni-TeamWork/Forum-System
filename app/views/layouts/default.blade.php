@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <!--<link rel="stylesheet" type="text/css" href="style.css" />-->
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
     <title>Team "TAMBA" Forum system</title>
 </head>
 <body>
 <div class="wrapper">
     <header>
         <div class="logo">
-            <img alt="Team TAMBA Forum system" src="tamba3.png">
+            <a href="/">
+                <img alt="Team TAMBA Forum system" src="tamba3.png">
+            </a>
         </div>
         <nav>
             <ul>
                 <li><a href="/">Начало</a></li>
-                <li><a href="/user/register">Регистрация</a></li>
                 <li><a href="/user/login">Вход</a></li>
+                <li><a href="/user/register">Регистрация</a></li>
             </ul>
         </nav>
     </header>
