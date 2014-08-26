@@ -30,6 +30,7 @@ nav {
 main {
     text-align: center;
     padding: 5%;
+    min-height: 400px;
 }
 footer {
     border-top: 2px solid deepskyblue ;
@@ -39,7 +40,7 @@ footer {
     width: 100%;
 }
 section {
-    height: 90%;
+
 }
 li {
     border-radius: 2px;
@@ -68,25 +69,17 @@ label {
 section div:first-of-type {
     width: 1000px;
     text-align: left;
-
 }
-footer a{
+footer div a{
      text-decoration: none;
      color: darkblue;
 }
-footer a:hover {
+footer div a:hover {
     color: orange;
 }
-footer div:first-of-type{
-    width: 100px;
-}
-
 
 label{
     width: 140px;
     display: inline-block;
 }
 
-footer a{
-    color: black !important;
-}
