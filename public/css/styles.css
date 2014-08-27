@@ -12,7 +12,7 @@ body {
 }
 header {
     background-color: grey;
-    /*background-image: url("../pattern3.png");*/
+    background-image: url("pattern4.png");
     height: 130px;
     border-bottom: 2px solid deepskyblue ;
 }
