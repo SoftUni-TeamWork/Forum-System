@@ -62,24 +62,38 @@ li a:hover {
 }
 
 label {
-    width: 140px;
+    width: 180px;
     display: inline-block;
+    font-size: 20px;
+    color:darkslateblue;
 }
-
+input[type=submit] {
+    color: deepskyblue;
+    font-size: 18px;
+    background-color: #616161;
+    border: none;
+    padding: 5px;
+    margin-top: 10px;
+    float: left;
+}
+input[type=submit]:hover {
+    color: orangered;
+}
+input {
+    font-size: 16px;
+}
 section div:first-of-type {
     width: 1000px;
     text-align: left;
+    color: orangered;
 }
 footer div a{
      text-decoration: none;
      color: darkblue;
 }
 footer div a:hover {
-    color: orange;
+    color: orangered;
 }
 
-label{
-    width: 140px;
-    display: inline-block;
-}
+
 
