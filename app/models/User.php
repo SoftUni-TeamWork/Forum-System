@@ -44,7 +44,11 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
      *
      * @var array
      */
-    protected $hidden = array('password', 'remember_token');
+    protected $hidden = array('password', 'auth_token');
+
+    public function validate($questionData) {
+        return parent::validate($questionData);
+    }
 
     public function setData($userData) {
         $this->username = $userData['username'];

@@ -1,7 +1,8 @@
 <?php
 
-abstract class BaseModel extends Eloquent {
-    public $rules;
+abstract class BaseModel extends Eloquent
+{
+    protected $rules;
     public $errorDefinitions;
     public $errors;
 

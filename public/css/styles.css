@@ -29,7 +29,7 @@ nav {
 }
 main {
     text-align: center;
-    padding: 5%;
+    padding: 1%;
     min-height: 400px;
 }
 footer {
@@ -94,6 +94,17 @@ footer div a{
 footer div a:hover {
     color: orangered;
 }
-
+table{
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+td,th{
+    border: 1px solid white;
+    padding: 3px 5px;
+}
+th{
+    color: white;
+    background-color: #616161;
+}
 
 

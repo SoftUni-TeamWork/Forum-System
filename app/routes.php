@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', array('before' => 'auth', 'UserController@logged'));
+Route::get('/', array('before' => 'auth','UserController@logged'));
 Route::get('/', array(
     'as' => 'home',
     'uses' => 'HomeController@index',
@@ -19,19 +19,19 @@ Route::get('/', array(
 
 Route::get('/user/register', array(
     'before' => 'guest',
-    'as' => 'user-register',
+    'as' => 'user.register',
     'uses' => 'UserController@create'
 ));
 Route::post('/user/register', 'UserController@store');
 
 Route::get('user/login', array(
-    'as' => 'user-login',
-    'uses' => 'UserController@getLogin'
+    'as' => 'user.login',
+    'uses' => 'UserController@logged'
 ));
-Route::post('user/login', 'UserController@postLogin');
+Route::post('user/login', 'UserController@login');
 
 Route::get('/user/logout', array(
-    'as' => 'user-logout',
+    'as' => 'user.logout',
     'uses' => 'UserController@logout'
 ));
 Route::get('/user/{id}', 'UserController@show');
