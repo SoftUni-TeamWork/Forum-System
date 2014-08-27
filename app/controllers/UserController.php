@@ -26,9 +26,9 @@ class UserController extends \BaseController {
             $user->setData($userData);
             $user->save();
 
-            return Redirect::to('home');
+            return Redirect::route('home');
         } else {
-            return Redirect::to('user-register')->withErrors($user->errors)->withInput();
+            return Redirect::route('user-register')->withErrors($user->errors)->withInput();
         }
     }
 

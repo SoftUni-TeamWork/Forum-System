@@ -2,8 +2,7 @@
 @section('content')
 Оттук може да влезете в профила си:
 
-
-{{Form::open(array('url' => '/user/login')) }}
+{{ Form::open(array('url' => URL::route('user-login'))) }}
 {{Form::label('username','Потребителско име')}}
 {{Form::text('username',Input::old('username'))}}
 @if($errors->has('username'))

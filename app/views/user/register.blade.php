@@ -1,9 +1,9 @@
 @extends('layouts.default')
 @section('content')
-{{Form::open(array('url' => 'user-register')) }}
+{{Form::open(array('url' => URL::route('user-register'))) }}
 {{Form::label('username', 'Потребителско име')}}
 {{Form::text('username', Input::old('username'))}}
-@if($errors->has('username')
+@if($errors->has('username'))
 <span class="error">
     {{$errors->first('username')}}
 </span>
