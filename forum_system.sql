@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(60) NOT NULL,
   `email` varchar(50) NOT NULL,
   `avatar_path` varchar(100) DEFAULT NULL,
-  `auth_token` varchar(150) DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),

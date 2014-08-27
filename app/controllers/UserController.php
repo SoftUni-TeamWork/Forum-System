@@ -26,9 +26,9 @@ class UserController extends \BaseController {
             $user->setData($userData);
             $user->save();
 
-            return Redirect::to('/');
+            return Redirect::to('home');
         } else {
-            return Redirect::to('user/register')->withErrors($user->errors)->withInput();
+            return Redirect::to('user-register')->withErrors($user->errors)->withInput();
         }
     }
 
@@ -76,24 +76,32 @@ class UserController extends \BaseController {
 //
     }
 
-    public function login() {
+    public function getLogin() {
+        return View::make('user.login');
+    }
 
-        if (Auth::attempt(['username' => Input::get('username'), 'password' => Input::get('password')])) {
-//            $arr = ['user' => Auth::user()->username, 'id' => Auth::id()];
-            $questionData = Question::all();
-        $arr = [];
-//        echo '<pre>' . print_r($questions, true) . '</pre>';exit;
-        foreach ($questionData as $question) {
-            $arr['n' . $question->question_id]['title'] = $question->title;
-            $arr['n' . $question->question_id]['text'] = $question->text;
-            $arr['n' . $question->question_id]['user_id'] = $question->user_id;
-            $arr['n' . $question->question_id]['category_id'] = $question->category_id;
+    public function postLogin() {
+        $userData = Input::all();
+        $user = new User();
+        $user->rules = [
+            'username' => 'required',
+            'password' => 'required'
+        ];
+
+        if (!$user->validate($userData)) {
+            return Redirect::route('user-login')->withInput()->withErrors($user->errors);
         }
 
-        $arr['count'] = count($arr);
-            return View::make('secure',$arr);
+        $authAttempt = Auth::attempt([
+            'username' => Input::get('username'),
+            'password' => Input::get('password')
+        ]);
+
+        if ($authAttempt) {
+//            this line breaks the app
+//            return Redirect::route('home');
         } else {
-            return Redirect::to('user.login');
+            return Redirect::route('user-login')->with('login-fail', 'Username or password is wrong');
         }
     }
 
@@ -118,7 +126,7 @@ class UserController extends \BaseController {
             return View::make('secure', $arr);
         }
 //        echo '<pre>' . print_r($arr, true) . '</pre>';exit;
-        return View::make('user.login', $arr);
+        return View::make('user-login', $arr);
     }
 
 //maybe not in use DO NOT DELETE YET
@@ -137,5 +145,4 @@ class UserController extends \BaseController {
 
         return Redirect::to('/');
     }
-
 }
