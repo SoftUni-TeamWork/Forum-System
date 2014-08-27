@@ -6,7 +6,7 @@
 {{Form::open(array('url' => '/user/login')) }}
 {{Form::label('username','Потребителско име')}}
 {{Form::text('username',Input::old('username'))}}
-@if($errors->has('username')
+@if($errors->has('username'))
 <span class="error">
     {{$errors->first('username')}}
 </span>
@@ -14,7 +14,7 @@
 <br/>
 {{Form::label('password','Парола')}}
 {{Form::password('password')}}
-@if($errors->has('password')
+@if($errors->has('password'))
 <span class="error">
     {{$errors->first('password')}}
 </span>
@@ -22,7 +22,7 @@
 <br/>
 {{Form::submit('Впиши ме!')}}
 <br/>
-@if(Session::get('login-fail')
+@if(Session::get('login-fail'))
 <span class="error">
     {{Session::get('login-fail')}}
 </span>
